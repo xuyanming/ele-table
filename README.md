@@ -71,7 +71,21 @@
 	
 	<script>
     import { eleTable, eleTableColumn } from "ele-table";
-    import 'ele-table/dist/ele-table.css'; //项目引入element-ui 不需要引入样式,但需要class类el-table--dropNode 指定拖拽样式
+    import 'ele-table/dist/ele-table.css'; 
+    //项目引入element-ui 不需要引入样式,但需要class类指定拖拽样式
+    //<style>
+        //.el-table--dropNode{
+         // background-color: #409eff !important;
+        //}
+       // .el-tree__drop-indicator {
+       //     position: absolute;
+        //    left: 0;
+        //    right: 0;
+        //    height: 2px !important;
+        //    background-color: #409eff;
+        //    z-index: 10000;
+        //} 
+    //</style>
     export default {
         data(){
         	return{
