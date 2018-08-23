@@ -140,25 +140,27 @@
        }
     }
     </script>
+
 ```
+
 
 
 ### Calendar Attributes
 | 参数      | 说明           | 类型      | 可选值        | 默认值  |
-| ------------------- | ------- | ------------------- | ------------- |
+| -------------------- | ---------------------------------------------- | ---------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------- |
 | data      | 显示的数据     | array     | —             | —      |
-| treetable | 是否树形数据 | boolean | —             | false |
+| treetable | 是否树形数据 | boolean |   —             | false |
 | _expand| 树形数据默认展开节点（不支持递归关联） | boolean   | —             | false |
 | draggablerow      | 是否开启行拖拽     | boolean | —               | false |
 | draggable     | 是否开启单元格拖拽     | boolean | —               | false |
-| allow-drag     | 能否被拖拽     | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event)| —               | 要求返回boolean |
+| allow-drag     | 能否被拖拽     | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event)| — | 要求返回boolean |
 | allow-drop | 能否被放置 | Function(row, column, cell, event, type) | — | 要求返回boolean |
 ### Calendar Events
 | 事件名 | 说明 | 参数 |
-| ------------------- | ------- | ------------------- | ------------- |
-| node-drag-start| 节点开始拖拽时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event)|
-| node-drag-enter| 拖拽进入其他节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点) |
-| node-drag-leave| 拖拽离开某个节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点)|
-| node-drag-over| 在拖拽节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点)|
-| node-drag-end| 拖拽结束时触发的事件 | Function(dragging(被拖拽节点对象), drop(放置节点对象), dropType(放置位置（before、after、inner）), event)|
-| node-drop| 拖拽完成时触发的事件 | Function(dragging(被拖拽节点对象), drop(放置节点对象), dropType(放置位置（before、after、inner）), event)|
+| -------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| node-drag-start | 节点开始拖拽时触发的事件     | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event) |
+| node-drag-enter | 拖拽进入其他节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点) |
+| node-drag-leave | 拖拽离开某个节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点) |
+| node-drag-over  | 在拖拽节点时触发的事件 | Function(row(行数据), column(行拖拽为index,单元格为所在列), cell(节点), event, draggingNode(被拖拽节点)       |
+| node-drag-end   | 拖拽结束时触发的事件 | Function(dragging(被拖拽节点对象), drop(放置节点对象), dropType(放置位置（before、after、inner）), event)      |
+| node-drop       | 拖拽完成时触发的事件 | Function(dragging(被拖拽节点对象), drop(放置节点对象), dropType(放置位置（before、after、inner）), event)      |
