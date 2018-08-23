@@ -60,13 +60,14 @@
 </template>
 
 <script>
-import { eleTable, eleTableColumn } from "../dist/ele-table.js";
-import "../dist/ele-table.css";
+import { eleTable, eleTableColumn } from "../src/index.js";
+// import "../dist/ele-table.css";
 export default {
   name: "app",
   data() {
     return {
-      tableData: [{
+      tableData:[],
+      node: [{
           id: 1,
           label: '一级 1',
           _expand:true,
@@ -121,8 +122,7 @@ export default {
     eleTableColumn
   },
   mounted() {
-    console.log(eleTable)
-    console.log(eleTableColumn)
+    this.tableData = this.node
   },
   methods: {
     cellclick(row, column, cell, event){

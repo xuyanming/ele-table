@@ -45,7 +45,7 @@ export default {
         <tbody>
         {
             this._l(this.data, (row, $index) =>
-              [<transition name="el-fade"><tr
+              [<transition name="ele-fade"><tr
                 style={ this.rowStyle ? this.getRowStyle(row, $index) : null }
                 key={ this.table.rowKey ? this.getKeyOfRow(row, $index) : $index }
                 on-dblclick={ ($event) => this.handleDoubleClick($event, row) }
@@ -149,12 +149,19 @@ export default {
       if (newRow) {
         addClass(newRow, 'current-row');
       }
+    },
+    defdata(newVal, oldVal){
+      this.getdata(newVal)
     }
   },
 
   computed: {
     table() {
       return this.$parent;
+    },
+    
+    defdata(){
+      return this.store.states.data
     },
 
     columnsCount() {
@@ -192,37 +199,38 @@ export default {
 
   created() {
     this.activateTooltip = debounce(50, tooltip => tooltip.handleShowPopper());
-    if(this.treetable){
-      function toTree(rs,rf){
-        let arrtree=[];
-        rs.forEach((r,index)=>{
-          // rf ? r['_index'] = rf._index+index : r['_indent']=index;
-            rf ? r['_parent'] = rf : '';
-            r._expand ? null : r['_expand'] = false;
-            rf ? r['_indent'] = rf._indent+1 : r['_indent']=1;
-            r['_show'] = rf ? (rf._expand && rf._show) : true
-            arrtree.push(r)
-            if(r.children && r.children.length){
-              arrtree=arrtree.concat(toTree(r.children,r))
-            }
-        })
-        return arrtree
-      }
-      this.datatree = toTree(this.store.states.data).map((r,index)=>{r['_index']=index; return r})
-      this.treeshow(this.datatree)
-    }else{
-      this.data = this.store.states.data
-    }
   },
 
   methods: {
+    getdata(newVal){
+      if(this.treetable){
+        function toTree(rs,rf){
+          let arrtree=[];
+          rs.forEach((r,index)=>{
+              rf ? r['_parent'] = rf : '';
+              r._expand ? null : r['_expand'] = false;
+              rf ? r['_indent'] = rf._indent+1 : r['_indent']=1;
+              r['_show'] = rf ? (rf._expand && rf._show) : true
+              arrtree.push(r)
+              if(r.children && r.children.length){
+                arrtree=arrtree.concat(toTree(r.children,r))
+              }
+          })
+          return arrtree
+        }
+        this.datatree = toTree(newVal).map((r,index)=>{r['_index']=index; return r})
+        this.treeshow(this.datatree)
+      }else{
+        this.data = newVal
+      }
+    },
     treeshow(datatree){
       let tmp =[]
       datatree.forEach(r=>{
         if(r._show) tmp.push(r)
       })
       this.data = tmp
-      this.store.states.data = this.data;
+      // this.store.states.data = this.data;
     },
     getKeyOfRow(row, index) {
       const rowKey = this.table.rowKey;
