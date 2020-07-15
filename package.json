@@ -64,7 +64,12 @@
     "webpack": "^3.12.0",
     "webpack-dev-middleware": "^2.0.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-hot-middleware": "^2.21.0"
+    "webpack-hot-middleware": "^2.21.0",
+    "ele-table":"^1.0.1",
+    "resize-observer-polyfill":"^1.5.1",
+    "throttle-debounce":"^2.2.1",
+    "deepmerge":"^4.2.2",
+    "normalize-wheel":"^1.0.1"
   },
   "engines": {
     "node": ">= 4.0.0",
