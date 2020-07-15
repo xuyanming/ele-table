@@ -63,7 +63,7 @@
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.12.0",
     "webpack-dev-middleware": "^2.0.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^3.1.11",
     "webpack-hot-middleware": "^2.21.0",
     "ele-table":"^1.0.1",
     "resize-observer-polyfill":"^1.5.1",
